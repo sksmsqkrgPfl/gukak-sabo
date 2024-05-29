@@ -14,14 +14,14 @@ import cImSound from '../sounds/c.im_sound.mp3';
 import cMuSound from '../sounds/c.mu_sound.mp3';
 
 const sounds = {
-  joong: '/sounds/joong_sound.mp3',      // 중
-  im: '/sounds/im_sound.mp3',            // 임
-  mu: '/sounds/mu_sound.mp3',            // 무
-  c_hwang: '/sounds/c.hwang_sound.mp3',  // 청황
-  c_tae: '/sounds/c.tae_sound.mp3',      // 청태
-  c_joong: '/sounds/c.joong_sound.mp3',  // 청중
-  c_im: '/sounds/c.im_sound.mp3',        // 청임
-  c_mu: '/sounds/c.mu_sound.mp3'         // 청무
+  mu: muSound,
+  c_hwang: cHwangSound,
+  c_tae: cTaeSound,
+  im: imSound,
+  joong: joongSound,
+  c_joong: cJoongSound,
+  c_im: cImSound,
+  c_mu: cMuSound
 };
 
 const items = [
@@ -34,6 +34,7 @@ const items = [
   { id: 7, name: '청임', type: 'c_im', image: '/images/c.im.png' },
   { id: 8, name: '청무', type: 'c_mu', image: '/images/c.mu.png' }
 ];
+
 const GridCell = ({ index, onDrop, items, cellHeight }) => {
   const [, ref] = useDrop({
     accept: 'ITEM',
@@ -114,20 +115,23 @@ const JangdanboGrid = () => {
     });
   };
 
-const playAllSounds = async () => {
-  for (let column = 4; column >= 0; column--) { // 오른쪽에서 왼쪽으로
-    for (let row = 0; row < 5; row++) { // 위에서 아래로
-      const index = column * 5 + row;
-      const items = grid[index];
-      if (items.length > 0) {
-        const duration = 1000 / items.length;
-        for (let item of items) {
-          await playSound(item, duration);
+  const playAllSounds = async () => {
+    for (let column = 4; column >= 0; column--) { // 오른쪽에서 왼쪽으로
+      for (let row = 0; row < 5; row++) { // 위에서 아래로
+        const index = column * 5 + row;
+        if (index >= 0 && index < grid.length) { // 유효한 인덱스인지 확인
+          const items = grid[index];
+          if (items && items.length > 0) {
+            const duration = 1000 / items.length;
+            for (let item of items) {
+              await playSound(item, duration);
+            }
+          }
         }
       }
     }
-  }
-};
+  };
+
   const resetGrid = () => {
     setGrid(Array(20).fill([])); // 20칸으로 설정
   };
