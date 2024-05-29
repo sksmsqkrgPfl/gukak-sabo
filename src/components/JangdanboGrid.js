@@ -3,7 +3,7 @@ import { useDrag, useDrop, DndProvider } from 'react-dnd';
 import { HTML5Backend } from 'react-dnd-html5-backend';
 import './JangdanboGrid.css';
 
-// 오디오 파일을 import 합니다
+// 소문자로 된 파일 이름 사용
 import muSound from '../sounds/mu_sound.mp3';
 import cHwangSound from '../sounds/c.hwang_sound.mp3';
 import cTaeSound from '../sounds/c.tae_sound.mp3';
@@ -109,6 +109,7 @@ const JangdanboGrid = () => {
       audio.play();
       setTimeout(() => {
         audio.pause();
+        audio.currentTime = 0; // 소리를 처음으로 되돌리기
         resolve();
       }, duration);
     });
