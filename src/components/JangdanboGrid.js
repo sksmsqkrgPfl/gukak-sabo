@@ -14,27 +14,26 @@ import cImSound from '../sounds/c.im_sound.mp3';
 import cMuSound from '../sounds/c.mu_sound.mp3';
 
 const sounds = {
-  mu: muSound,
-  c_hwang: cHwangSound,
-  c_tae: cTaeSound,
-  im: imSound,
-  joong: joongSound,
-  c_joong: cJoongSound,
-  c_im: cImSound,
-  c_mu: cMuSound
+  joong: '/sounds/joong_sound.mp3',      // 중
+  im: '/sounds/im_sound.mp3',            // 임
+  mu: '/sounds/mu_sound.mp3',            // 무
+  c_hwang: '/sounds/c.hwang_sound.mp3',  // 청황
+  c_tae: '/sounds/c.tae_sound.mp3',      // 청태
+  c_joong: '/sounds/c.joong_sound.mp3',  // 청중
+  c_im: '/sounds/c.im_sound.mp3',        // 청임
+  c_mu: '/sounds/c.mu_sound.mp3'         // 청무
 };
 
 const items = [
-  { id: 3, name: '중', type: 'joong', image: '/images/joong.png' },
+  { id: 1, name: '중', type: 'joong', image: '/images/joong.png' },
   { id: 2, name: '임', type: 'im', image: '/images/im.png' },
-  { id: 4, name: '무', type: 'mu', image: '/images/mu.png' },
-  { id: 5, name: '청황', type: 'c_hwang', image: '/images/c.hwang.png' },
-  { id: 1, name: '청태', type: 'c_tae', image: '/images/c.tae.png' },
+  { id: 3, name: '무', type: 'mu', image: '/images/mu.png' },
+  { id: 4, name: '청황', type: 'c_hwang', image: '/images/c.hwang.png' },
+  { id: 5, name: '청태', type: 'c_tae', image: '/images/c.tae.png' },
   { id: 6, name: '청중', type: 'c_joong', image: '/images/c.joong.png' },
   { id: 7, name: '청임', type: 'c_im', image: '/images/c.im.png' },
   { id: 8, name: '청무', type: 'c_mu', image: '/images/c.mu.png' }
 ];
-
 const GridCell = ({ index, onDrop, items, cellHeight }) => {
   const [, ref] = useDrop({
     accept: 'ITEM',
@@ -115,21 +114,20 @@ const JangdanboGrid = () => {
     });
   };
 
-  const playAllSounds = async () => {
-    for (let column = 4; column > 0; column--) { // 오른쪽에서 왼쪽으로
-      for (let row = 0; row < 5; row++) { // 위에서 아래로
-        const index = (column - 1) * 5 + row;
-        const items = grid[index];
-        if (items.length > 0) {
-          const duration = 1000 / items.length;
-          for (let item of items) {
-            await playSound(item, duration);
-          }
+const playAllSounds = async () => {
+  for (let column = 4; column >= 0; column--) { // 오른쪽에서 왼쪽으로
+    for (let row = 0; row < 5; row++) { // 위에서 아래로
+      const index = column * 5 + row;
+      const items = grid[index];
+      if (items.length > 0) {
+        const duration = 1000 / items.length;
+        for (let item of items) {
+          await playSound(item, duration);
         }
       }
     }
-  };
-
+  }
+};
   const resetGrid = () => {
     setGrid(Array(20).fill([])); // 20칸으로 설정
   };
