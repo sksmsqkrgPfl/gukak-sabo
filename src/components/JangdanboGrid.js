@@ -14,11 +14,11 @@ import cImSound from '../sounds/c.im_sound.mp3';
 import cMuSound from '../sounds/c.mu_sound.mp3';
 
 const sounds = {
+  joong: joongSound,
+  im: imSound,
   mu: muSound,
   c_hwang: cHwangSound,
   c_tae: cTaeSound,
-  im: imSound,
-  joong: joongSound,
   c_joong: cJoongSound,
   c_im: cImSound,
   c_mu: cMuSound
@@ -119,9 +119,9 @@ const JangdanboGrid = () => {
     for (let column = 4; column >= 0; column--) { // 오른쪽에서 왼쪽으로
       for (let row = 0; row < 5; row++) { // 위에서 아래로
         const index = column * 5 + row;
-        if (index >= 0 && index < grid.length) { // 유효한 인덱스인지 확인
+        if (index < grid.length) {
           const items = grid[index];
-          if (items && items.length > 0) {
+          if (items.length > 0) {
             const duration = 1000 / items.length;
             for (let item of items) {
               await playSound(item, duration);
