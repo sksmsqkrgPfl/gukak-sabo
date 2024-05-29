@@ -121,7 +121,7 @@ const JangdanboGrid = () => {
         const index = column * 5 + row;
         if (index < grid.length) {
           const items = grid[index];
-          if (items.length > 0) {
+          if (items && items.length > 0) {
             const duration = 1000 / items.length;
             for (let item of items) {
               await playSound(item, duration);
