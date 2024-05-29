@@ -116,9 +116,9 @@ const JangdanboGrid = () => {
   };
 
   const playAllSounds = async () => {
-    for (let column = 4; column >= 0; column--) { // 오른쪽에서 왼쪽으로
-      for (let row = 0; row < 5; row++) { // 위에서 아래로
-        const index = column * 5 + row;
+    for (let col = 4; col >= 0; col--) { // 오른쪽에서 왼쪽으로
+      for (let row = 0; row < 4; row++) { // 위에서 아래로
+        const index = row * 5 + col;
         if (index < grid.length) {
           const items = grid[index];
           if (items && items.length > 0) {
