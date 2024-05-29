@@ -3,15 +3,25 @@ import { useDrag, useDrop, DndProvider } from 'react-dnd';
 import { HTML5Backend } from 'react-dnd-html5-backend';
 import './JangdanboGrid.css';
 
+// 오디오 파일을 import 합니다
+import muSound from '../sounds/mu_sound.mp3';
+import cHwangSound from '../sounds/c.hwang_sound.mp3';
+import cTaeSound from '../sounds/c.tae_sound.mp3';
+import imSound from '../sounds/im_sound.mp3';
+import joongSound from '../sounds/joong_sound.mp3';
+import cJoongSound from '../sounds/c.joong_sound.mp3';
+import cImSound from '../sounds/c.im_sound.mp3';
+import cMuSound from '../sounds/c.mu_sound.mp3';
+
 const sounds = {
-  mu: new Audio(process.env.PUBLIC_URL + '/sounds/mu_sound.mp3'),
-  c_hwang: new Audio(process.env.PUBLIC_URL + '/sounds/c.hwang_sound.mp3'),
-  c_tae: new Audio(process.env.PUBLIC_URL + '/sounds/c.tae_sound.mp3'),
-  im: new Audio(process.env.PUBLIC_URL + '/sounds/im_sound.mp3'),
-  joong: new Audio(process.env.PUBLIC_URL + '/sounds/joong_sound.mp3'),
-  c_joong: new Audio(process.env.PUBLIC_URL + '/sounds/c.joong_sound.mp3'),
-  c_im: new Audio(process.env.PUBLIC_URL + '/sounds/c.im_sound.mp3'),
-  c_mu: new Audio(process.env.PUBLIC_URL + '/sounds/c.mu_sound.mp3')
+  mu: muSound,
+  c_hwang: cHwangSound,
+  c_tae: cTaeSound,
+  im: imSound,
+  joong: joongSound,
+  c_joong: cJoongSound,
+  c_im: cImSound,
+  c_mu: cMuSound
 };
 
 const items = [
@@ -94,7 +104,7 @@ const JangdanboGrid = () => {
 
   const playSound = (item, duration) => {
     return new Promise((resolve) => {
-      const audio = sounds[item.type];
+      const audio = new Audio(sounds[item.type]);
       audio.currentTime = 0; // 재생을 처음부터 시작
       audio.play();
       setTimeout(() => {
