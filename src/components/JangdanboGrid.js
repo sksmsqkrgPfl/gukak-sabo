@@ -4,14 +4,14 @@ import { HTML5Backend } from 'react-dnd-html5-backend';
 import './JangdanboGrid.css';
 
 const sounds = {
-  mu: require('../sounds/mu_sound.mp3'),
-  c_hwang: require('../sounds/c.hwang_sound.mp3'),
-  c_tae: require('../sounds/c.tae_sound.mp3'),
-  im: require('../sounds/im_sound.mp3'),
-  joong: require('../sounds/joong_sound.mp3'),
-  c_joong: require('../sounds/c.joong_sound.mp3'),
-  c_im: require('../sounds/c.im_sound.mp3'),
-  c_mu: require('../sounds/c.mu_sound.mp3')
+  mu: new Audio(process.env.PUBLIC_URL + '/sounds/mu_sound.mp3'),
+  c_hwang: new Audio(process.env.PUBLIC_URL + '/sounds/c.hwang_sound.mp3'),
+  c_tae: new Audio(process.env.PUBLIC_URL + '/sounds/c.tae_sound.mp3'),
+  im: new Audio(process.env.PUBLIC_URL + '/sounds/im_sound.mp3'),
+  joong: new Audio(process.env.PUBLIC_URL + '/sounds/joong_sound.mp3'),
+  c_joong: new Audio(process.env.PUBLIC_URL + '/sounds/c.joong_sound.mp3'),
+  c_im: new Audio(process.env.PUBLIC_URL + '/sounds/c.im_sound.mp3'),
+  c_mu: new Audio(process.env.PUBLIC_URL + '/sounds/c.mu_sound.mp3')
 };
 
 const items = [
@@ -94,7 +94,8 @@ const JangdanboGrid = () => {
 
   const playSound = (item, duration) => {
     return new Promise((resolve) => {
-      const audio = new Audio(sounds[item.type]);
+      const audio = sounds[item.type];
+      audio.currentTime = 0; // 재생을 처음부터 시작
       audio.play();
       setTimeout(() => {
         audio.pause();
