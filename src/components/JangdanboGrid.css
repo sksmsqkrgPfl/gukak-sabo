@@ -1,0 +1,31 @@
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr); /* 5개의 줄로 변경 */
+  gap: 10px;
+  max-width: 250px; /* 변경된 칸 수에 맞게 너비 조정 */
+  margin: 0 auto;
+}
+
+.grid-cell {
+  width: 40px;
+  border: 1px solid #000;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  background-color: white;
+}
+
+.grid-cell img {
+  position: absolute;
+}
+
+.draggable-item {
+  margin: 0 10px;
+  cursor: pointer;
+}
+
+button.selected {
+  background-color: skyblue;
+}
