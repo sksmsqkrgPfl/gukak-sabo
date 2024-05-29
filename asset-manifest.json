@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/gukak-sabo/static/css/main.57420fd5.chunk.css",
-    "main.js": "/gukak-sabo/static/js/main.421deb15.chunk.js",
-    "main.js.map": "/gukak-sabo/static/js/main.421deb15.chunk.js.map",
+    "main.js": "/gukak-sabo/static/js/main.78ce560c.chunk.js",
+    "main.js.map": "/gukak-sabo/static/js/main.78ce560c.chunk.js.map",
     "runtime-main.js": "/gukak-sabo/static/js/runtime-main.ab450ffc.js",
     "runtime-main.js.map": "/gukak-sabo/static/js/runtime-main.ab450ffc.js.map",
     "static/js/2.df92d787.chunk.js": "/gukak-sabo/static/js/2.df92d787.chunk.js",
@@ -23,6 +23,6 @@
     "static/js/runtime-main.ab450ffc.js",
     "static/js/2.df92d787.chunk.js",
     "static/css/main.57420fd5.chunk.css",
-    "static/js/main.421deb15.chunk.js"
+    "static/js/main.78ce560c.chunk.js"
   ]
 }
