@@ -1,0 +1,15 @@
+.note {
+  width: 40px; /* 예시 너비 */
+  height: 40px; /* 예시 높이 */
+  border: 1px solid black;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.lyrics {
+  width: 20px; /* 음 칸 너비의 절반 */
+  height: 40px; /* 음 칸과 동일한 높이 */
+  border: 1px solid black;
+  text-align: center;
+  vertical-align: middle;
+}
