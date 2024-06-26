@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/gukak-sabo/static/css/main.57420fd5.chunk.css",
-    "main.js": "/gukak-sabo/static/js/main.e5cda841.chunk.js",
-    "main.js.map": "/gukak-sabo/static/js/main.e5cda841.chunk.js.map",
+    "main.css": "/gukak-sabo/static/css/main.f0a6fb82.chunk.css",
+    "main.js": "/gukak-sabo/static/js/main.b8a7afad.chunk.js",
+    "main.js.map": "/gukak-sabo/static/js/main.b8a7afad.chunk.js.map",
     "runtime-main.js": "/gukak-sabo/static/js/runtime-main.ab450ffc.js",
     "runtime-main.js.map": "/gukak-sabo/static/js/runtime-main.ab450ffc.js.map",
     "static/js/2.df92d787.chunk.js": "/gukak-sabo/static/js/2.df92d787.chunk.js",
     "static/js/2.df92d787.chunk.js.map": "/gukak-sabo/static/js/2.df92d787.chunk.js.map",
     "index.html": "/gukak-sabo/index.html",
-    "static/css/main.57420fd5.chunk.css.map": "/gukak-sabo/static/css/main.57420fd5.chunk.css.map",
+    "static/css/main.f0a6fb82.chunk.css.map": "/gukak-sabo/static/css/main.f0a6fb82.chunk.css.map",
     "static/js/2.df92d787.chunk.js.LICENSE.txt": "/gukak-sabo/static/js/2.df92d787.chunk.js.LICENSE.txt",
     "static/media/c.hwang_sound.1c8b3603.mp3": "/gukak-sabo/static/media/c.hwang_sound.1c8b3603.mp3",
     "static/media/c.im_sound.47aa0cb1.mp3": "/gukak-sabo/static/media/c.im_sound.47aa0cb1.mp3",
@@ -22,7 +22,7 @@
   "entrypoints": [
     "static/js/runtime-main.ab450ffc.js",
     "static/js/2.df92d787.chunk.js",
-    "static/css/main.57420fd5.chunk.css",
-    "static/js/main.e5cda841.chunk.js"
+    "static/css/main.f0a6fb82.chunk.css",
+    "static/js/main.b8a7afad.chunk.js"
   ]
 }
