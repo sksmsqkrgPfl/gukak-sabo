@@ -87,7 +87,8 @@ const DraggableItem = ({ item }) => {
 };
 
 const JangdanboGrid = () => {
-  const [grid, setGrid] = useState(Array(20).fill([])); // 20칸으로 설정
+  const [grid, setGrid] = useState(Array(24).fill([])); // 24칸으로 설정
+  const [lyrics, setLyrics] = useState(Array(24).fill("")); // 각 칸에 대한 가사 상태 추가
   const [mode, setMode] = useState('1'); // 기본 모드는 '1'
 
   const handleDrop = (index, item) => {
@@ -100,6 +101,12 @@ const JangdanboGrid = () => {
       }
     }
     setGrid(newGrid);
+  };
+
+  const handleLyricsChange = (index, e) => {
+    const newLyrics = [...lyrics];
+    newLyrics[index] = e.target.value;
+    setLyrics(newLyrics);
   };
 
   const playSound = (item, duration) => {
@@ -116,9 +123,9 @@ const JangdanboGrid = () => {
   };
 
   const playAllSounds = async () => {
-    for (let col = 4; col >= 0; col--) { // 오른쪽에서 왼쪽으로
-      for (let row = 0; row < 5; row++) { // 위에서 아래로
-        const index = row * 5 + col;
+    for (let col = 5; col >= 0; col--) { // 오른쪽에서 왼쪽으로
+      for (let row = 0; row < 4; row++) { // 위에서 아래로
+        const index = row * 6 + col;
         if (index < grid.length) {
           const items = grid[index];
           if (items && items.length > 0) {
@@ -133,7 +140,8 @@ const JangdanboGrid = () => {
   };
 
   const resetGrid = () => {
-    setGrid(Array(20).fill([])); // 20칸으로 설정
+    setGrid(Array(24).fill([])); // 24칸으로 설정
+    setLyrics(Array(24).fill("")); // 가사 초기화
   };
 
   // 모든 칸의 높이를 결정하는 함수
@@ -164,7 +172,14 @@ const JangdanboGrid = () => {
           </div>
           <div className="grid-container">
             {grid.map((items, index) => (
-              <GridCell key={index} index={index} items={items} onDrop={handleDrop} cellHeight={cellHeight} />
+              <div key={index} className="grid-cell-container">
+                <GridCell index={index} items={items} onDrop={handleDrop} cellHeight={cellHeight} />
+                <textarea
+                  className="lyrics-input"
+                  value={lyrics[index]}
+                  onChange={(e) => handleLyricsChange(index, e)}
+                />
+              </div>
             ))}
           </div>
           <button onClick={playAllSounds}>재생</button>
