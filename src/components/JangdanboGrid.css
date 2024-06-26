@@ -29,3 +29,28 @@
 button.selected {
   background-color: skyblue;
 }
+
+.grid-cell {
+  border: 1px solid black;
+  position: relative;
+  display: inline-block;
+  vertical-align: top;
+}
+
+.lyrics-input {
+  width: 20px; /* 음 칸 너비의 절반 */
+  height: 40px; /* 음 칸과 동일한 높이 */
+  border: 1px solid black;
+  vertical-align: top;
+  resize: none; /* 크기 조절 불가 */
+}
+
+.grid-cell-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.draggable-item {
+  margin: 5px;
+}
